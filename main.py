@@ -173,7 +173,7 @@ async def handle_docs_photo(message: types.Message):
                 await bot.send_message(client_id, message.text)
 
             established_pipes[message.chat.id].last_time = time.time()
-            established_pipes[established_pipes[message.chat.id].client_id].last_time = time.time()
+            established_pipes[client_id].last_time = time.time()
 
     
     elif message.chat.id in waiting_clients: await message.answer("Ищем собеседника...")
