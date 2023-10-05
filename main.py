@@ -1,4 +1,3 @@
-
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 from usr import User
@@ -110,7 +109,7 @@ async def handle_docs_photo(message: types.Message):
                 await bot.send_voice(client_id, FSInputFile(f"{message.chat.id}.ogg"))
                 os.remove(f"{message.chat.id}.ogg")
 
-            if message.video_note:
+            elif message.video_note:
                 file_id = message.video_note.file_id
                 file = await bot.get_file(file_id)
                 file_path = file.file_path
@@ -119,7 +118,7 @@ async def handle_docs_photo(message: types.Message):
                 await bot.send_video_note(client_id, FSInputFile(f"{message.chat.id}.mp4"))
                 os.remove(f"{message.chat.id}.mp4")
 
-            if message.animation:
+            elif message.animation:
                 file_id = message.animation.file_id
                 file = await bot.get_file(file_id)
                 file_path = file.file_path
