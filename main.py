@@ -69,7 +69,7 @@ async def stop(message: types.Message):
         established_pipes.pop(message.chat.id)
     
     elif message.chat.id in waiting_clients:
-        await message.answer("Окей, поиск собеседника прекрацён")
+        await message.answer("Окей, поиск собеседника прекращён")
         waiting_clients.pop(message.chat.id)
 
     else: await message.answer("Вы ни с кем не общаетесь")
